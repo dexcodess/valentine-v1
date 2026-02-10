@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Game 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Step 0: Intro Screen -->
+        <div class="game-screen" data-step="0">
+            <div class="game-card">
+                <div class="illustration">💝</div>
+                <h1>Do you want to see something special?</h1>
+                <div class="button-group">
+                    <button class="btn btn-yes" onclick="game.handleChoice(0, true)">YES</button>
+                    <button class="btn btn-no" onclick="game.handleChoice(0, false)">NO</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 1: Intro Punishment -->
+        <div class="game-screen" data-step="1">
+            <div class="game-card punishment">
+                <div class="illustration angry">😤</div>
+                <h1>How dare you! 😤</h1>
+                <p>I spent hours making this and you just say NO?!</p>
+                <div class="button-group">
+                    <button class="btn btn-try-again" onclick="game.tryAgain(0)">TRY AGAIN</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Rose Day -->
+        <div class="game-screen" data-step="2">
+            <div class="game-card">
+                <div class="illustration">🌹</div>
+                <h1>Rose Day</h1>
+                <p>Like a rose, you bloom with beauty and grace every single day.</p>
+                <div class="button-group">
+                    <button class="btn btn-next" onclick="game.nextStep()">NEXT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Chocolate Day -->
+        <div class="game-screen" data-step="3">
+            <div class="game-card">
+                <div class="illustration">🍫</div>
+                <h1>Chocolate Day</h1>
+                <p>You're sweeter than any chocolate I've ever tasted.</p>
+                <div class="button-group">
+                    <button class="btn btn-next" onclick="game.nextStep()">NEXT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Teddy Day -->
+        <div class="game-screen" data-step="4">
+            <div class="game-card">
+                <div class="illustration">🧸</div>
+                <h1>Teddy Day</h1>
+                <p>You're as cuddly and comforting as my favorite teddy bear.</p>
+                <div class="button-group">
+                    <button class="btn btn-next" onclick="game.nextStep()">NEXT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Promise Day -->
+        <div class="game-screen" data-step="5">
+            <div class="game-card">
+                <div class="illustration">🤝</div>
+                <h1>Promise Day</h1>
+                <p>I promise to always love you, support you, and make you smile.</p>
+                <div class="button-group">
+                    <button class="btn btn-next" onclick="game.nextStep()">NEXT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 6: Kiss Day -->
+        <div class="game-screen" data-step="6">
+            <div class="game-card">
+                <div class="illustration">💋</div>
+                <h1>Kiss Day</h1>
+                <p>Every moment with you feels like a sweet, magical kiss.</p>
+                <div class="button-group">
+                    <button class="btn btn-next" onclick="game.nextStep()">NEXT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 7: Propose Day -->
+        <div class="game-screen" data-step="7">
+            <div class="game-card">
+                <div class="illustration">💍</div>
+                <h1>Propose Day</h1>
+                <p>Today's the perfect day to show you how much you mean to me.</p>
+                <div class="button-group">
+                    <button class="btn btn-next" onclick="game.nextStep()">NEXT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 8: Letters Screen -->
+        <div class="game-screen" data-step="8">
+            <div class="game-card">
+                <div class="illustration">💌</div>
+                <h1>Choose a Love Letter</h1>
+                <div class="letter-grid">
+                    <button class="letter-btn" onclick="game.openLetter(1)">Letter 1</button>
+                    <button class="letter-btn" onclick="game.openLetter(2)">Letter 2</button>
+                    <button class="letter-btn" onclick="game.openLetter(3)">Letter 3</button>
+                </div>
+                <div class="button-group" style="margin-top: 2rem;">
+                    <button class="btn btn-next" onclick="game.nextStep()">I've read all letters!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 9: Momo Proposal -->
+        <div class="game-screen" data-step="9">
+            <div class="game-card">
+                <div class="illustration special">�</div>
+                <h1>Did you see all the letters?</h1>
+                <div class="button-group">
+                    <button class="btn btn-yes" onclick="game.handleChoice(9, true)">YES</button>
+                    <button class="btn btn-no" onclick="game.handleChoice(9, false)">NO</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 10: Momo Final Proposal -->
+        <div class="game-screen" data-step="10">
+            <div class="game-card">
+                <div class="illustration special">💍</div>
+                <h1>Momo, will you be mine forever?</h1>
+                <p>Through all of life's adventures and dreams...</p>
+                <div class="button-group">
+                    <button class="btn btn-yes" onclick="game.handleChoice(10, true)">YES</button>
+                    <button class="btn btn-no" onclick="game.handleChoice(10, false)">NO</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 11: Momo Punishment -->
+        <div class="game-screen" data-step="11">
+            <div class="game-card punishment">
+                <div class="illustration angry">�</div>
+                <h1>How could you say NO to Momo?! �</h1>
+                <p>Momo is the queen who owns everybody's heart! You must say YES!</p>
+                <div class="button-group">
+                    <button class="btn btn-try-again" onclick="game.tryAgain(10)">TRY AGAIN</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 12: Ultimate Happy Ending -->
+        <div class="game-screen" data-step="12">
+            <div class="game-card celebration">
+                <div class="illustration celebration">🎉🌸💕</div>
+                <h1>YAY! This is the best thing in the whole universe! 💕</h1>
+                <p>To hear this from a queen who owns everybody's heart! 🌸🌸🌸</p>
+                <div class="button-group">
+                    <button class="btn btn-restart" onclick="game.restart()">PLAY AGAIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Letter Modal -->
+    <div id="letter-modal" class="modal">
+        <div class="modal-content">
+            <div class="letter-header">
+                <h2 id="letter-title">Letter Title</h2>
+            </div>
+            <div class="letter-body" id="letter-text">
+                Letter content goes here...
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-back" onclick="game.closeLetter()">Back to Letters</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Simple test to verify the page loads
+        console.log('HTML loaded successfully');
+        setTimeout(() => {
+            console.log('Game should be initialized now');
+            if (window.game) {
+                console.log('Game object found:', window.game);
+            } else {
+                console.error('Game object not found!');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
